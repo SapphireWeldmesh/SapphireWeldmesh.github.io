@@ -6,7 +6,7 @@
   "scripts": {
     "version": "parcel --version",
     "dev": "parcel index.html",
-    "build": "parcel build index.html --public-url ./ --experimental-scope-hoisting",
+    "build": "parcel build index.html --public-url ./ -d docs --experimental-scope-hoisting",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,6 +19,7 @@
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "autoprefixer": "^9.8.6",
+    "cssnano": "^4.1.10",
     "sass": "^1.26.10"
   }
 }
