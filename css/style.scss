@@ -49,6 +49,10 @@ a {
     text-decoration: none;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 /* easings */
 
 :root {
@@ -103,7 +107,7 @@ $col : 100vw / 36;
 body {
     font-family: 'Inter';
     line-height: 1.325;
-    font-size: 2rem;
+    font-size: calc(1rem + 0.5vw);
 }
 
 html,
@@ -116,12 +120,13 @@ body {
     height: $row;
     display: grid;
     grid-template-columns: repeat(36, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     padding: $row / 2 0 0 0;
     margin: 0 0 $row;
 }
 
 .nav_section {
-    font-size: 1.5rem;
+    font-size: calc(1rem + 0.275rem);
 }
 
 .nav_left {
@@ -132,7 +137,7 @@ body {
 }
 
 .nav_middle {
-    grid-area: 1/18/1/26;
+    grid-area: 2/2/3/32;
     margin-right: $col * 2;
 }
 
@@ -182,7 +187,8 @@ main {
 }
 
 .one .img-wrapper {
-    height: $row * 15;
+    // height: $row * 15;
+    max-height: 180vh;
     background: lightblue;
 }
 
@@ -288,7 +294,7 @@ footer .titles {
 }
 
 footer .titles .title {
-    flex-basis: 50%;
+    flex-basis: $col * 17;
 }
 
 footer .columns .column {
@@ -313,6 +319,12 @@ footer .columns .contact_left {
     justify-content: space-between;
 }
 
+#colophon {
+    // font-size: 75%;
+    opacity: 0.75;
+    font-weight: 500;
+}
+
 
 
 // image parallax
@@ -320,15 +332,17 @@ footer .columns .contact_left {
 .img-wrapper {
     overflow: hidden;
     perspective: 1px;
-    min-height: 100vh;
+    // min-height: 100vh;
+    max-height: 100%;
 }
 
 .img-parallax {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    // bottom: 0;
+    // left: 0;
+    max-height: fit-content;
 }
 
 .img-parallax {
@@ -340,6 +354,7 @@ footer .columns .contact_left {
 
 
 @media only screen and (max-width: 767px) {
+    $row: $row / 2;
     body {
         font-size: 1rem;
     }
@@ -348,8 +363,12 @@ footer .columns .contact_left {
         flex-direction: column;
     }
 
+    section {
+        margin-bottom: $row * 2;
+    }
+
     .nav {
-        min-height: $row * 3;
+        min-height: $row * 5;
         grid-template-rows: repeat(6, 1fr);
         margin: 0;
     }
@@ -363,7 +382,7 @@ footer .columns .contact_left {
     }
 
     .nav_middle {
-        grid-area: 5/2/7/24;
+        grid-area: 5/2/7/36;
         margin-right: $col * 2;
     }
 
@@ -383,10 +402,11 @@ footer .columns .contact_left {
 
     .img-wrapper {
         min-height: 100%;
+        // max-height: 200vh;
     }
 
     .one .img-wrapper {
-        height: $row * 5;
+        height: $row * 9;
         background: lightblue;
     }
 
@@ -429,8 +449,32 @@ footer .columns .contact_left {
         margin: 0 0 $row / 2 0;
     }
 
-    footer .title.left {
-        font-size: 1rem;
+
+    footer {
+        padding-bottom: $row;
+        min-height: 100%;
+        .titles {
+            margin-bottom: $row / 2;
+            .left {
+                flex-basis: 100%;
+                margin-bottom: $row / 2;
+            }
+
+            .right {
+                flex-basis: 100%;
+                h2 {
+                    font-size: calc(1rem + 0.75vw);
+                }
+            }
+        }
+        .columns {
+            .contact_left {
+                flex-basis: 100%;
+                p {
+                    margin-bottom: $row/2;
+                }
+            }
+        }
     }
 
 }
