@@ -1,0 +1,397 @@
+@import './fonts/inter.css';
+
+/* brutal reset */
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    scroll-behavior: smooth;
+    text-rendering: geometricPrecision;
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* easings */
+
+:root {
+    --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    --ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    --ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+    --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+    --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+    --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+    --ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+    --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+    --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+    --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+    --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+    --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+    --row: calc(100vh / 8);
+    --col: calc(100vw/36);
+}
+
+$row : 100vh / 8;
+$col : 100vw / 36;
+
+
+// grid overlay
+
+#grid {
+    z-index: 9999;
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    margin: 0 auto;
+    background-size: calc(var(--col) * 2) var(--row);
+    background-image:
+        linear-gradient(to right, rgba(255, 0, 0, 0.25) 0, rgba(255, 0, 0, 0.25) var(--col), transparent var(--col)),
+        linear-gradient(to bottom, transparent calc(var(--row) - 1px), rgba(255, 0, 0, 0.5) var(--row));
+}
+
+
+/* custom styles */
+
+body {
+    font-family: 'Inter';
+    line-height: 1.325;
+    font-size: 2rem;
+}
+
+.nav {
+    width: 100%;
+    height: $row;
+    display: grid;
+    grid-template-columns: repeat(36, 1fr);
+    padding: $row / 2 0 0 0;
+    margin: 0 0 $row;
+}
+
+.nav_section {
+    font-size: 1.5rem;
+}
+
+.nav_left {
+    display: flex;
+    flex-direction: column;
+    grid-area: 1/1/1/18;
+    padding: 0 0 0 $col;
+}
+
+.nav_middle {
+    grid-area: 1/18/1/26;
+    margin-right: $col * 2;
+}
+
+.nav_right {
+    display: flex;
+    grid-area: 1/28/1/37;
+    padding: 0 $col 0 0;
+}
+
+.nav_links {
+    margin-left: auto;
+    text-align: right;
+}
+
+.nav_links--item {
+    font-weight: 600;
+}
+
+.w-medium {
+    font-weight: 800;
+}
+
+.link {
+    cursor: pointer;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.heading.brand {
+    font-size: calc(2rem + 2vw);
+    font-weight: 900;
+    line-height: 0.8;
+}
+
+.heading.tagline {
+    font-size: calc(2rem + 0.55vw);
+}
+
+main {
+    min-height: 100vh;
+    background: white;
+}
+
+.one .img-container {
+    padding: $row $col $col;
+}
+
+.one .img-wrapper {
+    height: $row * 15;
+    background: lightblue;
+}
+
+.one.content {
+    width: $col * 30;
+    margin: 0 0 0 $col * 5;
+    padding: 0 $col;
+    text-indent: $col * 6;
+}
+
+section {
+    margin-bottom: $row * 2;
+}
+
+.two h1 {
+    padding: 0 0 0 $col * 1;
+    margin: 0 0 $row 0;
+    font-size: 5vw;
+    font-weight: 800;
+}
+
+.two .products {
+    width: 100%;
+    padding: 0 $col 0 $col;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.img-placeholder {
+    width: 100%;
+    height: $row * 6;
+    background: lightblue;
+}
+
+.product {
+    flex-basis: $col * 22;
+    margin: 0 0 $row * 2 0;
+}
+
+.product:last-of-type {
+    margin: 0;
+}
+
+.product.right {
+    margin-left: $col * 12;
+}
+
+.product h2 {
+    padding: 1.5rem 0 0 0;
+    margin: 0 0 1.75rem 0;
+    font-size: calc(2rem + 1vw);
+    text-transform: capitalize;
+}
+
+.product p {
+    // font-size: 1.75rem;
+    padding-right: 2rem;
+    max-width: 50ch;
+}
+
+footer {
+    // z-index: -1;
+    // position: sticky;
+    // bottom: 0;
+    min-height: 6 * $row;
+    // background: lightcoral;
+    padding: 0 $col $row;
+}
+
+h1 {
+    line-height: 1;
+}
+
+footer h1 {
+    font-size: 5vw;
+}
+
+footer .columns {
+    display: flex;
+}
+
+footer .titles {
+    width: 100%;
+    align-items: baseline;
+    margin: $row/4 0 $row 0;
+}
+
+footer .titles .title {
+    flex-basis: 50%;
+}
+
+footer .columns .column {
+    flex-basis: $col * 16;
+}
+
+footer .columns .contact_left {
+    margin-right: $col;
+}
+
+.contact_left address {
+    font-style: normal;
+}
+
+.contact_left address p {
+    margin-bottom: $row/2;
+}
+
+.contact_left ul li {
+    display: flex;
+    width: 75%;
+    justify-content: space-between;
+}
+
+
+
+// image parallax
+
+.img-wrapper {
+    overflow: hidden;
+    perspective: 1px;
+    min-height: 100vh;
+}
+
+.img-parallax {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.img-parallax {
+    // transform: translateZ(-1px) scale(2);
+}
+
+
+
+
+
+@media only screen and (max-width: 767px) {
+    body {
+        font-size: 1rem;
+    }
+
+    * {
+        flex-direction: column;
+    }
+
+    .nav {
+        min-height: $row * 3;
+        grid-template-rows: repeat(6, 1fr);
+        margin: 0;
+    }
+
+    .nav_section {
+        font-size: 0.875rem;
+    }
+
+    .nav_left {
+        grid-area: 1/1/2/18;
+    }
+
+    .nav_middle {
+        grid-area: 3/2/6/24;
+        margin-right: $col * 2;
+    }
+
+    .nav_right {
+        grid-area: 6/2/7/37;
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .img-wrapper {
+        min-height: 100%;
+    }
+
+    .one .img-wrapper {
+        height: $row * 5;
+        background: lightblue;
+    }
+
+    .product {
+        margin: 0 0 $row 0;
+    }
+
+    .product.right {
+        margin-left: 0;
+    }
+
+    .product h2 {
+        font-size: calc(1.575rem + 1vw);
+    }
+
+    h1.title {
+        font-size: calc(3rem + 1vw);
+    }
+
+    .two h1 {
+        margin: 0 0 $row / 2 0;
+    }
+    
+}
