@@ -1,6 +1,6 @@
 {
   "name": "swiss",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Swiss portfolio",
   "main": "index.html",
   "scripts": {
