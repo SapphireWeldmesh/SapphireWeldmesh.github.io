@@ -135,6 +135,7 @@ main {
 
 .hero {
     overflow: hidden;
+    margin-bottom: $row * 2;
 
     .bg_img {
         position: absolute;
@@ -146,6 +147,7 @@ main {
         max-width: 100vw;
         filter: opacity(0.25);
         pointer-events: none;
+        // z-index: -1;
 
         img {
             min-height: 100vh;
@@ -217,7 +219,7 @@ main {
 }
 
 section {
-    margin-bottom: $row * 2;
+    margin-bottom: $row;
 }
 
 .two h1 {
@@ -293,16 +295,17 @@ footer {
         .box {
             display: flex;
             margin-bottom: 2rem;
+
             .left,
             .right {
                 padding: 0;
             }
-    
+
             .left {
                 flex-basis: 25%;
                 padding: 0 $col;
             }
-    
+
             .right {
                 flex-basis: 75%;
             }
@@ -320,6 +323,7 @@ footer {
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
 
         button {
             margin: 2rem 0 0 0;
@@ -345,7 +349,7 @@ footer {
     $row: $row / 2;
 
     body {
-        font-size: 1rem;
+        font-size: calc(1rem + 0.5vw);
     }
 
     * {
@@ -353,76 +357,43 @@ footer {
     }
 
     section {
-        margin-bottom: $row * 2;
+        // margin-bottom: $row * 2;
     }
 
-    .nav {
-        min-height: $row * 5;
-        grid-template-rows: repeat(6, 1fr);
-        margin: 0;
+    .hero .content {
+        place-items: center;
     }
 
-    .nav_section {
-        font-size: 0.875rem;
+    .hero .content .wrapper {
+        .menu .menu-item {
+            font-size: calc(1rem + 1vw);
+            margin-bottom: 1rem;
+        }
+        .tagline {
+            font-size: calc(1rem + 0.75vw);
+        }
     }
 
-    .nav_left {
-        grid-area: 3/1/4/37;
-    }
-
-    .nav_middle {
-        grid-area: 5/2/7/36;
-        margin-right: $col * 2;
-    }
-
-    .nav_right {
-        grid-area: 1/2/2/37;
-        font-size: 1rem;
-        line-height: 1.75;
-    }
-
-    .nav_links {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-left: 0;
-        text-align: center;
-
-        .quote {
-            display: none;
+    .story {
+        .column.right {
+            .title {
+                font-size: calc(2rem + 2vw);
+                padding: $row 0;
+            }
+            p {
+                font-size: calc(1rem + 0.5vw);
+                padding: 0 0 $row 0;
+                text-align: center;
+            }
         }
     }
 
     .img-wrapper {
         min-height: 100%;
-        // max-height: 200vh;
-    }
-
-    .one .img-wrapper {
-        height: $row * 9;
-        background: lightblue;
-    }
-
-    .one.columns .column.left {
-        margin: $col 0 $row;
-        width: 100%;
-
-        h1 {
-            font-size: calc(3rem + 1vw);
-        }
-    }
-
-    .one.columns .column.right {
-        padding: 0 0 0 $col;
-        width: $col * 34;
     }
 
     .product {
         margin: 0 0 $row 0;
-    }
-
-    .product.right {
-        margin-left: 0;
     }
 
     .product h2 {
@@ -442,76 +413,21 @@ footer {
         margin: 0 0 $row / 2 0;
     }
 
-
-
-
     footer {
-        padding-bottom: $row;
-        min-height: 100%;
+        margin-bottom: $row;
+    }
 
-        .titles {
-            margin-bottom: $row / 2;
-
-            .left {
-                flex-basis: 100%;
-                margin-bottom: $row / 2;
-            }
-
-            .right {
-                flex-basis: 100%;
-
-                h2 {
-                    font-size: calc(1rem + 0.75vw);
-                }
-            }
-        }
-
-        .columns {
-            .contact_left {
-                display: flex;
-                flex-direction: row-reverse;
-                padding-top: $row;
-
-                address {
-                    flex-basis: calc(100% - 5rem);
-                    margin-bottom: $row/2;
-                }
-
-                .social {
-                    width: 4rem;
-                    flex-basis: 4rem;
-                    // flex-direction: row;
-                    margin: 0;
-                    margin-bottom: $row;
-
-                    .social_container,
-                    .social_item {
-                        width: 1rem;
-                        height: 1rem;
-                        flex-basis: 2rem;
-                    }
-                }
-            }
-
-            .contact_right {
-                display: flex;
+    footer .columns {
+        flex-direction: row;
+        flex-wrap: wrap;
+        .left, .right {
+            flex-basis: 100%;
+            .box {
                 flex-direction: row;
-                flex-wrap: wrap;
-
-                .w-medium {
-                    flex-basis: 50%;
-                }
-
-                .p {
-                    flex-basis: 50%;
-                }
-
-                #colophon {
-                    flex-basis: 100%;
-                    // text-align: center;
+                .right {
+                    padding: 0 $col;
                 }
             }
         }
     }
-
 }
