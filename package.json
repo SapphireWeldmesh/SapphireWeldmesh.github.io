@@ -13,8 +13,7 @@
   "author": "Siddharth S.",
   "license": "MIT",
   "dependencies": {
-    "animejs": "^3.2.0",
-    "ogl": "^0.0.60"
+    "animejs": "^3.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

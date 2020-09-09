@@ -952,11 +952,6 @@ object.values@^1.1.0:
     function-bind "^1.1.1"
     has "^1.0.3"
 
-ogl@^0.0.60:
-  version "0.0.60"
-  resolved "https://registry.yarnpkg.com/ogl/-/ogl-0.0.60.tgz#c47f6b12e0bf4a6c2dd74aa9ad91dab9d70c0c52"
-  integrity sha512-lUibQAeKjeccUilgWB04UzC18GRWpeCj1IDjDjisOnXz3QVsTGS/FpO6rjexfVQzYTifVLKqtDMpb9AGw9hoXg==
-
 parse-json@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/parse-json/-/parse-json-4.0.0.tgz#be35f5425be1f7f6c747184f98a788cb99477ee0"

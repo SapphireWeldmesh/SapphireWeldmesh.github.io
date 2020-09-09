@@ -17,7 +17,8 @@
 // }
 
 window.addEventListener('DOMContentLoaded', () => {
-    window.scrollTo(0, 0)
+    window.scroll(0, 0)
+    document.body.scrollTop = 0
 })
 
 window.onload = () => {
