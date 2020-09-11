@@ -198,7 +198,7 @@ main {
 
 .story {
     .columns {
-        height: 100vh;
+        min-height: 100vh;
         padding: 0 $col;
 
         .left,
@@ -216,7 +216,7 @@ main {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 0 $col;
+            padding: $row $col;
             font-size: calc(1rem + 1vw);
             background: #042454;
             color: white;
