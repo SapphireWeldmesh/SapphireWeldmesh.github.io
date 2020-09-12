@@ -496,5 +496,13 @@ footer {
                 }
             }
         }
+        .social {
+            flex-direction: row;
+            margin-bottom: $row;
+            .social-icon {
+                height: 2rem;
+                width: 2rem;
+            }
+        }
     }
 }
