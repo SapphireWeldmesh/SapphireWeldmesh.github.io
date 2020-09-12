@@ -151,6 +151,7 @@ main {
 
         img {
             min-width: 100vw;
+            min-height: 100%;
             width: auto;
         }
     }
@@ -190,7 +191,7 @@ main {
             }
 
             .tagline {
-                font-size: calc(1.5rem + 1vw);
+                font-size: calc(1.5rem + 0.5vw);
             }
         }
     }
@@ -201,14 +202,17 @@ main {
         min-height: 100vh;
         padding: 0 $col;
 
+        .left {
+            overflow: hidden;
+            img {
+                min-height: 100%;
+                min-width: 60vw;
+            }
+        }
+
         .left,
         .right {
             flex-basis: calc(50%);
-
-            img {
-                min-width: 50vw;
-                min-height: 100%;
-            }
         }
 
         .right {
@@ -217,7 +221,7 @@ main {
             justify-content: center;
             align-items: center;
             padding: $row $col;
-            font-size: calc(1rem + 1vw);
+            font-size: calc(1rem + 0.75vw);
             background: #042454;
             color: white;
 
@@ -252,34 +256,51 @@ section {
 .products {
     padding: 0 $col;
     display: grid;
-    grid-gap: $col;
+    grid-gap: 0 $col;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(1, 1fr);
+    text-align: center;
     .product-img {
         h2 {
             padding: 1.5rem 0 0 0;
         }
         img {
             height: 100%;
+            max-height: $row * 3;
         }
+    }
+    .product-desc {
+        padding: $col;
     }
     .product-img__1 {
         grid-area: 1/1/2/2;
+        background: black;
+        color: white;
     }
     .product-img__2 {
         grid-area: 1/2/2/3;
+        background: #042454;
+        color: white;
     }
     .product-img__3 {
         grid-area: 1/3/2/4;
+        background: lightblue;
+        color: black;
     }
     .product-desc__1 {
         grid-area: 2/1/3/2;
+        background: black;
+        color: white;
     }
     .product-desc__2 {
         grid-area: 2/2/3/3;
+        background: #042454;
+        color: white;
     }
     .product-desc__3 {
         grid-area: 2/3/3/4;
+        background: lightblue;
+        color: black;
     }
 }
 
@@ -322,6 +343,21 @@ footer {
 
             .right {
                 flex-basis: 75%;
+            }
+        }
+
+        .social {
+            display: flex;
+            margin-left: 25%;
+            .social-icon {
+                margin-right: 2rem;
+                // flex-basis: calc(100% / 6);
+                height: 3rem;
+                width: 3rem;
+                img {
+                    height: 100%;
+                    width: 100%;
+                }
             }
         }
 
@@ -430,6 +466,10 @@ footer {
     .product p {
         padding-right: 0;
         max-width: 50ch;
+    }
+
+    .product-desc {
+        margin: 0 0 $row 0;
     }
 
     h1.title {
