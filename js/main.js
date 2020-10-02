@@ -22,7 +22,6 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 window.onload = () => {
-    document.body.style.overflow = 'auto'
     document.getElementById('loader').classList.toggle('loaded')
 }
 
